@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+The main difference between malloc and calloc is in the way they initialize the allocated memory. malloc simply allocates the requested number of bytes and returns a pointer to the first byte of the allocated memory, without initializing the memory. On the other hand, calloc initializes all bytes of the allocated memory to zero.
+
+Another difference is in the way the memory is requested. malloc takes a single argument, which is the number of bytes to be allocated. calloc, on the other hand, takes two arguments: the number of data elements to be allocated and the size of each data element. The function then calculates the total number of bytes to be allocated as the product of these two values and returns a pointer to 
+
+
+
+
+                                           +---------------+
+                                           | malloc(n bytes)|
+                                           +---------------+
+                                                   |
+                                                   V
+                                  +---------------------------------+
+                                  | Allocate n bytes of uninitialized |
+                                  | memory and return a pointer to the |
+                                  | first byte                         |
+                                  +---------------------------------+
+                                                   |
+                                                   V
+                                           +---------------+
+                                           | *ptr = ...    |
+                                           +---------------+
+                                                   |
+                                                   V
+                                 +----------------------------+
+                                 | Use the allocated memory as |
+                                 | desired                     |
+                                 +----------------------------+
+
+                                           +---------------+
+                                           | calloc(n, size)|
+                                           +---------------+
+                                                   |
+                                                   V
+                                  +---------------------------------+
+                                  | Allocate n elements of size "size"|
+                                  | and return a pointer to the first |
+                                  | byte of the allocated memory      |
+                                  | with all elements initialized to 0|
+                                  +---------------------------------+
+                                                   |
+                                                   V
+                                 +----------------------------+
+                                 | Use the allocated memory as |
+                                 | desired                     |
+                                 +----------------------------+
+
+</body>
+</html>
